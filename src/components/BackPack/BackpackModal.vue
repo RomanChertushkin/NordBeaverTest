@@ -5,8 +5,8 @@
   <div class="backpack-modal__body">
     <BackpackFiltersMenu @change="activeFilter = $event"/>
     <div class="backpack-modal__body__inventory">
-      <BackPackTitle class="backpack-modal__body__inventory_title" :title="activeFilter"></BackPackTitle>
-      <BackpackInventory />
+      <BackPackTitle class="backpack-modal__body__inventory_title" :title="activeFilter.name"></BackPackTitle>
+      <BackpackInventory :filter="activeFilter.type" />
     </div>
   </div>
 
@@ -20,15 +20,15 @@ import BackpackFiltersMenu from './BackpackFiltersMenu.vue';
 import BackPackTitle from './BackPackTitle.vue';
 import BackpackInventory from './BackpackInventory.vue';
 
-let activeFilter = ref('All Items');
+let activeFilter = ref({name: 'All Items', type: 'all'});
 </script>
 
 <style scoped>
 .backpack-modal {
   width: 100%;
   height: 100%;
-  width: 562px;
-  height: 864px;
+  width: 560px;
+  height: 890px;
   flex-shrink: 0;
   background: #242223
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="backpack-filters-menu">
-    <div class="backpack-filters-menu__filter" v-for="filter in filters" :key="filter.name" @click="activeFilter = filter.name; emit('change', activeFilter );">
-       <img :src="filter.iconSrc" :class="activeFilter.includes(filter.name) ? 'menu__icon__active' : 'menu__icon__inactive'"/>
+    <div class="backpack-filters-menu__filter" v-for="filter in filters" :key="filter.name" @click="activeFilter = filter; emit('change', activeFilter);">
+       <img :src="filter.iconSrc" :class="activeFilter.name.includes(filter.name) ? 'menu__icon__active' : 'menu__icon__inactive'"/>
     </div>
   </div>
 </template>
@@ -13,25 +13,35 @@
   import armorFilter from '@/assets/icons/armor-filter.svg';
   import miscFilter from '@/assets/icons/misc-filter.svg';
 
-  let activeFilter = ref('All Items');
+  let activeFilter = ref(
+    {
+      name: 'All Items',
+      type: 'all',
+      iconSrc: itemsFilter
+    }
+  );
 
   const emit = defineEmits(['change'])
 
   const filters = [
      {
       name: 'All Items',
+      type: 'all',
       iconSrc: itemsFilter
     },
     {
       name: 'Weapons',
+      type: 'weapon',
       iconSrc: weaponFilter
     },
     {
       name: 'Armor',
+      type: 'armor',
       iconSrc: armorFilter
     },
     {
       name: 'Misc',
+      type: 'misc',
       iconSrc: miscFilter
     }
   ]

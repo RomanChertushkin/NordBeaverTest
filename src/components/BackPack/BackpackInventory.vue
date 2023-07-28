@@ -5,8 +5,18 @@
       v-for="(item, index) in items"
       :key="index"
     >
-      <div class="backpack-inventory__item"></div>
-      {{ item?.name }}
+      <div class="backpack-inventory__item__charges" v-if="item?.charges">
+        <img src="@/assets/icons/item-conor.svg" alt="close" />
+        <div>{{ item?.charges }}/{{ item?.maxCharges }}</div>
+      </div>
+
+      <div class="backpack-inventory__item__iamge">
+        <img :src="item?.imageUrl" alt="item" />
+      </div>
+
+      <div class="backpack-inventory__item__count" v-if="item?.count">
+        {{ item?.count }}
+      </div>
     </div>
   </div>
 </template>
@@ -468,6 +478,7 @@ onMounted(() => {
 }
 
 .backpack-inventory__item {
+  position: relative;
   border: 1px solid #454545;
   width: 93px;
   height: 93px;
@@ -478,10 +489,60 @@ onMounted(() => {
 }
 
 .backpack-inventory::-webkit-scrollbar-thumb {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
 }
 
 .backpack-inventory::-webkit-scrollbar-thumb:hover {
   background-color: #D9D9D;
+}
+
+.backpack-inventory__item__charges {
+  position: relative;
+  color: #fff;
+  font-family: "JetBrainsMono";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 2px;
+}
+
+.backpack-inventory__item__charges div {
+  position: absolute;
+  padding-left: 5px;
+}
+
+.backpack-inventory__item__charges img {
+  position: absolute;
+}
+
+.backpack-inventory__item__count {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  padding-right: 5px;
+  text-align-last: end;
+
+  color: #fff;
+  text-align: right;
+  font-family: JetBrains Mono;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.backpack-inventory__item__iamge {
+      display: flex;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
+    height: inherit;
+}
+
+.backpack-inventory__item__iamge img {
+  width: 74px;
+height: 74px;
 }
 </style>

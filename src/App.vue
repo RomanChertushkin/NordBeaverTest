@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import BackpackModal from '@/components/BackPack/BackpackModal.vue'
 </script>
 
 <template>
-  <main>
-    <BackpackModal />
-  </main>
+    <router-view />
 </template>
 
-<style scoped>
+<style>
 
 </style>

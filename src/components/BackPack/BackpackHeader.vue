@@ -13,7 +13,7 @@
 <style scoped>
 .backpack-header {
   width: 100%;
-  height: 59px;
+  height: 7%;
   display: flex;
 }
 

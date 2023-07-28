@@ -192,7 +192,7 @@ onMounted(() => {
 
   if (route.query?.case == undefined) {
     //update case param
-    router.replace({ name: "Index", query: { case: 0 } });
+    router.replace({ name: "Index", query: { case: 1 } });
   }
 
   caseId = route.query?.case || 1;

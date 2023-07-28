@@ -87,7 +87,7 @@ watch(
 );
 
 let loading = ref(true);
-let caseId = 0;
+let caseId = 1;
 let items = ref([]);
 let tooltip = ref(null);
 let tooltipItemname = ref("");

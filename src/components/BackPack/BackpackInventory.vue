@@ -114,7 +114,7 @@ const getItems = async () => {
   // THIS IS TEST FUNCTION! DELETE THAT IN FEATURE
     data.inventory.forEach(e => {
         if (e.cooldown) {
-            e.cooldown = 120
+            e.cooldown = 1
         }
     })
   //
@@ -151,12 +151,12 @@ const startTimers = (items) => {
 
   itemsWithCooldown.forEach((item) => {
     let timer = setInterval(() => {
-      item.cooldown -= 1;
+        item.cooldown -= 1;
+        
+        if (item.cooldown === 0) {
+        clearInterval(timer);
+        }
     }, 1000);
-
-    if (item.cooldown === 0) {
-      clearInterval(timer);
-    }
   });
 };
 
